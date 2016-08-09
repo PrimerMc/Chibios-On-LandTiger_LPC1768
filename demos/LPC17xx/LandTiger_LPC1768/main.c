@@ -22,8 +22,7 @@
 
 #include <ch.h>
 #include <hal.h>
-// #include "test.h"
-// #include <chprintf.h>
+#include "ch_test.h"
 
 
 static THD_WORKING_AREA(led0_thread_wa, 128);
@@ -146,7 +145,7 @@ int main(void) {
     halInit();
     chSysInit();
 
-    // sdStart(&SD2, NULL);
+    sdStart(&SD2, NULL);
     /*
    * Creating blinkers threads.
    */
@@ -171,7 +170,7 @@ int main(void) {
    * Normal main() thread activity, in this demo it does nothing except
    * sleeping in a loop and check the buttons state and run test procedure.
    */
-    // test_execute((BaseSequentialStream *)&SD2);
+    test_execute((BaseSequentialStream *)&SD2);
     while (TRUE)
     {
 

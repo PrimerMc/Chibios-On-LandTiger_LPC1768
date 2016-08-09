@@ -209,11 +209,11 @@ static void notify2(io_queue_t *qp) {
 
 CH_IRQ_HANDLER(Vector58) {  
  
-  CH_IRQ_PROLOGUE();
+  OSAL_IRQ_PROLOGUE();
 
   serve_interrupt(&SD2);
 
-  CH_IRQ_EPILOGUE();
+  OSAL_IRQ_EPILOGUE();
 }
 
 /*===========================================================================*/
@@ -230,7 +230,7 @@ void sd_lld_init(void) {
 
 
   sdObjectInit(&SD2, NULL, notify2);
-  SD2.uart = LPC_UART1;
+  SD2.uart = (LPC_UART_TypeDef *)LPC_UART1;
   /* RDX without resistors.       */
   /* TDX without resistors.       */
   //modify PINSEL to change pin

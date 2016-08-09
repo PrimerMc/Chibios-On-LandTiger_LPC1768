@@ -76,7 +76,6 @@ void st_lld_init(void) {
                   SysTick_CTRL_ENABLE_Msk |
                   SysTick_CTRL_TICKINT_Msk;
   nvicSetSystemHandlerPriority(HANDLER_SYSTICK, CORTEX_PRIORITY_BITS);
-  // SysTick_Config(LPC17xx_SYSCLK / CH_CFG_ST_FREQUENCY - 1);
                   
 }
 
